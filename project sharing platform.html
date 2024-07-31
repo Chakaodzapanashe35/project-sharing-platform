@@ -1,0 +1,460 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students and Business Project Sharing Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        body {
+            margin: 20px;
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        header {
+            margin-bottom: 20px;
+        }
+
+        footer {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        section {
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .bg-light {
+            background-color: #ffffff;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+        }
+
+        .feature {
+            margin: 10px 0;
+        }
+
+        .highlight {
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+            overflow: hidden;
+        }
+
+            .video-container iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            body {
+                margin: 10px;
+            }
+
+            header, footer {
+                font-size: 0.9em;
+            }
+        }
+
+        /* Navigation Styling */
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .btn-link {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .btn-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Hero Section Styling */
+        #home {
+            background-color: #f2f2f2; /* Light background */
+            padding: 50px 0;
+        }
+
+        #home h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #home p {
+            text-align: center;
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        #home img {
+            max-width: 100%;
+            height: auto;
+            margin: 20px auto;
+            display: block;
+        }
+
+        /* Project Submission Form Styling */
+        #submit-project form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        #submit-project label {
+            font-weight: bold;
+        }
+
+        #submit-project input,
+        #submit-project textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            margin-bottom: 15px;
+        }
+
+        #submit-project button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        /* Resource Library Styling */
+        #resource-library ul {
+            list-style: disc;
+            padding-left: 20px;
+        }
+
+        #resource-library a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        #resource-library a:hover {
+            text-decoration: underline;
+        }
+
+        /* Payment Section Styling */
+        #payment button {
+            margin-right: 10px;
+        }
+
+        /* Sign Up & Login Form Styling */
+        #signup form,
+        #login form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        #signup label,
+        #login label {
+            font-weight: bold;
+        }
+
+        #signup input,
+        #login input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            margin-bottom: 15px;
+        }
+
+        #signup button,
+        #login button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        /* Search Projects Styling */
+        #search-projects .input-group {
+            width: 100%;
+        }
+
+        #search-projects input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+
+        #search-projects button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        /* Subscription Model Styling */
+        #subscription .highlight {
+            font-size: 1.2em;
+        }
+
+        /* Earnings System Styling */
+        #reward-system .highlight {
+            font-size: 1.2em;
+        }
+
+        /* User Dashboard Styling */
+        #dashboard h4 {
+            margin-bottom: 10px;
+        }
+
+        #dashboard p {
+            margin-bottom: 5px;
+        }
+
+        #dashboard .highlight {
+            font-size: 1.1em;
+        }
+
+        #dashboard button {
+            margin-right: 10px;
+        }
+
+        /* Modal Styling */
+        .modal-content {
+            border-radius: 5px;
+        }
+
+        .modal-header {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .modal-title {
+            font-weight: bold;
+        }
+
+        .modal-body {
+            padding: 20px;
+        }
+
+        /* Feedback System Styling */
+        #feedback form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        #feedback label {
+            font-weight: bold;
+        }
+
+        #feedback textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            margin-bottom: 15px;
+        }
+
+        #feedback button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        /* Project Card Styling */
+        .project-card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 15px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            margin-bottom: 5px;
+        }
+
+        .project-card .btn-primary {
+            margin-top: 10px;
+        }
+
+        /* Error Message Styling */
+        .error-message {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1 class="text-center">Project Sharing Platform</h1>
+        <nav class="text-center">
+            <a href="#home" class="btn btn-link">Home</a>
+            <a href="#signup" class="btn btn-link">Sign Up</a>
+            <a href="#login" class="btn btn-link">Login</a>
+            <a href="#submit-project" class="btn btn-link">Submit Project</a>
+            <a href="#search-projects" class="btn btn-link">Search Projects</a>
+            <a href="#dashboard" class="btn btn-link">Dashboard</a>
+            <a href="#admin-panel" class="btn btn-link">Admin Panel</a>
+            <a href="#resource-library" class="btn btn-link">Resource Library</a>
+            <a href="#contact" class="btn btn-link">Contact</a>
+        </nav>
+    </header>
+
+    <section id="home" class="bg-light">
+        <h2>Welcome to the Project Sharing Platform!</h2>
+        <p>Connect with students and businesses, share your projects, and collaborate on exciting new ventures.</p>
+        <img src="images (46).jpeg" alt="Image 1" class="img-fluid">
+        <img src="download (39).jpeg" alt="Image 2" class="img-fluid">
+    </section>
+
+    <section id="services" class="bg-light">
+        <h2>Our Services</h2>
+        <p>We offer a comprehensive suite of services to empower your project journey.</p>
+        <ul>
+            <li><strong>Project Submission and Management:</strong> Easily submit and manage your projects with our intuitive platform.</li>
+            <li><strong>Collaboration Tools:</strong> Connect with other users, collaborate on projects, and build a strong network.</li>
+            <li><strong>User Support and Resources:</strong> Access a wealth of tutorials, resources, and support to help you succeed.</li>
+            <li><strong>Developer Platform:</strong> Build custom integrations and enhance your experience with our powerful API.</li>
+            <li><strong>AI-Powered Project Matching:</strong>  Get matched with projects that align with your skills and interests.</li>
+            <li><strong>Real-Time Project Updates:</strong> Stay informed about the latest project developments and opportunities.</li>
+        </ul>
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/9LSnINglkQA?si=hRcr63QFGUoWzW4n" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <p>Note: Please ensure you provide a detailed explanation of how your project works when submitting.</p>
+    </section>
+
+    <section id="contact" class="bg-light">
+        <h2>Contact Us</h2>
+        <p>Email: chakaodzapanashe35@gmail.com</p>
+        <p>Phone: +263786268857</p>
+    </section>
+
+    <section id="submit-project" class="bg-light">
+        <h2>Submit Project</h2>
+        <form id="project-form">
+            <div class="mb-3">
+                <label for="project-name" class="form-label">Project Name:</label>
+                <input type="text" class="form-control" id="project-name" required>
+            </div>
+            <div class="mb-3">
+                <label for="project-description" class="form-label">Description:</label>
+                <textarea class="form-control" id="project-description" required></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="project-link" class="form-label">GitHub Link:</label>
+                <input type="url" class="form-control" id="project-link" required>
+            </div>
+            <div class="mb-3">
+                <label for="project-upload" class="form-label">Upload File:</label>
+                <input type="file" class="form-control" id="project-upload" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit Project</button>
+            <div id="project-form-error" class="error-message"></div>
+        </form>
+    </section>
+
+    <section id="resource-library" class="bg-light">
+        <h2>Resource Library</h2>
+        <p>Access tutorials and resources for project development.</p>
+        <ul>
+            <li><a href="#">Tutorial 1: Building a Basic Website with HTML, CSS, and JavaScript</a></li>
+            <li><a href="#">Tutorial 2: Introduction to Python Programming</a></li>
+            <li><a href="#">Tutorial 3: Data Visualization with Python and Matplotlib</a></li>
+            <li><a href="#">Tutorial 4:  Learn React JS for Web Development</a></li>
+            <li><a href="#">Tutorial 5:  Mastering Node.js for Backend Development</a></li>
+            <li><a href="#">Tutorial 6:  Building a Mobile App with Flutter</a></li>
+        </ul>
+    </section>
+
+    <section id="payment" class="bg-light">
+        <h2>Payment Options</h2>
+        <p>Subscribe to our services via PayPal or Stripe.</p>
+        <p>If you're unfamiliar with PayPal or Stripe, please refer to our tutorials on how to set up an account and make payments.</p>
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#paypalModal">Pay with PayPal</button>
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#stripeModal">Pay with Stripe</button>
+    </section>
+
+    <section id="signup" class="bg-light">
+        <h2>Sign Up</h2>
+        <form id="signup-form">
+            <div class="mb-3">
+                <label for="email" class="form-label">Email:</label>
+                <input type="email" class="form-control" id="email" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password:</label>
+                <input type="password" class="form-control" id="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Register ($1 fee)</button>
+            <div id="signup-form-error" class="error-message"></div>
+        </form>
+    </section>
+
+    <section id="login" class="bg-light">
+        <h2>Login</h2>
+        <form id="login-form">
+            <div class="mb-3">
+                <label for="login-email" class="form-label">Email:</label>
+                <input type="email" class="form-control" id="login-email" required>
+            </div>
+            <div class="mb-3">
+                <label for="login-password" class="form-label">Password:</label>
+                <input type="password" class="form-control" id="login-password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+            <div id="login-form-error" class="error-message"></div>
+        </form>
+    </section>
+
+    <section id="search-projects" class="bg-light">
+        <h2>Search Projects</h2>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Search by keyword, faculty, or tags...">
+            <button class="btn btn-primary" type="button">Search</button>
+        </div>
+    </section>
+
+    <section id="subscription" class="bg-light">
+        <h2>Subscription Model</h2>
+        <p>Unlock the full potential of our platform with our flexible subscription options:</p>
+        <ul>
+            <li><strong>Monthly Subscription:</strong> <span class="highlight">$1</span> per month for unlimited access to projects.</li>
+            <li><strong>Annual Subscription:</strong> <span class="highlight">$12</span> per year for a discounted rate and exclusive benefits.</li>
+        </ul>
+        <button class="btn btn-primary">Subscribe Now</button>
+    </section>
+
+    <section id="reward-system" class="
